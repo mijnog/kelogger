@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <linux/input.h>
 #include <time.h>
+#include <errno.h>
 
 
 
@@ -127,7 +128,7 @@ const char *keycode_to_str_shifted(int code) {
 
 int main(int argc, char * argv[]){
         if (argc != 2){
-            printf("Usage: %s <event-file>", argv[0]);
+            printf("Usage: %s <event-file>\n e.g. %s /dev/input/event7\n", argv[0], argv[0]);
             return 1;
         }
         int fd = open(argv[1], O_RDONLY, 0);
@@ -139,10 +140,15 @@ int main(int argc, char * argv[]){
 
         while(1){         
             ssize_t result = read(fd, &ie, sizeof(ie));
-            if (result != sizeof(ie)){
-                perror("read");
+            if (result != sizeof(ie)) {
+                if (errno == EBADF) {
+                    fprintf(stderr, "read: Bad file descriptor. Try running as root.\n");
+                } else {
+                    perror("read");
+                }
                 break;
             }
+            
         if (ie.type != 1){
             continue; //ONLY CARE ABOUT EVENT KEYS
         }
