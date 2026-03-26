@@ -9,6 +9,7 @@ $(TARGET): $(SRCS)
 
 clean:
 	rm -f $(TARGET)
+	echo "So fresh and so clean!"
 
 # make
 # make clean (deletes the binary)
