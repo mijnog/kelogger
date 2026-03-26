@@ -28,6 +28,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+# Kellogger
+
+![Kellog's Original Cornflakes Logo](media_1b2558f258e08fff37b0b39d9929ad254e4702571.png)
+
 Works on linux. On my Ubuntu keyboard input file is `/dev/input/event7`. This may be different on your system.
 
 Since this keylogger runs as a daemon you won't see errors on stderr. On Ubuntu, you can use `journalctl -t kellogger` to find error messages, or `journalctl -t kellogger -f` to see them appear in real time.
